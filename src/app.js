@@ -14,9 +14,19 @@ app.use('/api/team', async (req, res, next) => {
       `${baseURL}/squads/teams/254172?api_token=${API_TOKEN}&include=player`
     )
 
+    // Get the response data from the response
     const data = response.data
 
-    res.send({ data })
+    // Initialize players object to hold associated data
+    const players = {}
+
+    for (const player of data.data) {
+      if (!players[player.player.name]) {
+        players[player.player.name] = player
+      }
+    }
+
+    res.send({ players: players })
   } catch (error) {
     next(error)
   }
