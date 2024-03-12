@@ -14,10 +14,10 @@ app.use('/api/team', async (req, res, next) => {
       `${baseURL}/squads/teams/254172?api_token=${API_TOKEN}&include=player`
     )
 
-    // Get the response data from the response
+    // Get the response data from the response.
     const data = response.data
 
-    // Initialize players object to hold associated data
+    // Initialize players object to hold associated data.
     const players = {}
 
     for (const player of data.data) {
