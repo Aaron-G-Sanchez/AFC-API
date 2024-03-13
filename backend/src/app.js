@@ -1,5 +1,6 @@
 const axios = require('axios')
 const express = require('express')
+const cors = require('cors')
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -8,6 +9,14 @@ const baseURL = 'https://api.sportmonks.com/v3/football'
 
 const app = express()
 
+// TEMP CODE
+app.use(cors())
+
+app.use('/api/test', (req, res, next) => {
+  res.send({ msg: 'Hello World' })
+})
+
+// TODO Need to retun an array of players rather than an object
 app.use('/api/team', async (req, res, next) => {
   try {
     const response = await axios.get(
