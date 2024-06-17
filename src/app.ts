@@ -1,10 +1,6 @@
 import express, { Express, Request, Response, NextFunction } from 'express'
-import 'dotenv/config'
 import morgan from 'morgan'
-
 import {playerRouter, matchesRouter} from './routes'
-
-const API_TOKEN = process.env.API_TOKEN
 
 export const app: Express = express()
 
