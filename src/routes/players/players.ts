@@ -8,9 +8,9 @@ const router: Router = express.Router()
 // Get a list of all the players.
 router.get('/', async(req: Request, res: Response, next: NextFunction) => {
   const afcID: number = 254172
-  const baseRoute: string = `https://api.sportmonks.com/v3/football/teams/${afcID}?api_token=${API_TOKEN}&include=players`
+  const baseRoute: string = `https://api.sportmonks.com/v3/football/squads/teams/${afcID}?api_token=${API_TOKEN}&include=player`
 
-  // Fetch the data from the sportmonks api
+  // Fetch the data from the sportmonks api.
   const apiRes = await fetch(baseRoute)
   const json = await apiRes.json()
 
