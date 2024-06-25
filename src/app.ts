@@ -1,9 +1,11 @@
 import express, { Express, Request, Response, NextFunction } from 'express'
 import morgan from 'morgan'
-import {playerRouter, matchesRouter} from './routes'
+import cors from 'cors'
+import { playerRouter, matchesRouter } from './routes'
 
 export const app: Express = express()
 
+app.use(cors())
 app.use(morgan('dev'))
 
 app.use('/hello', async (req: Request, res: Response, next: NextFunction) => {

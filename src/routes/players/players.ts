@@ -21,6 +21,7 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
   const apiRes = await fetch(baseRoute)
   const data = await apiRes.json()
 
+  // TODO Add function to type guard
   const typedData = data.data as Player[]
 
   // TODO: Need to loop through the json and isolate the players.
